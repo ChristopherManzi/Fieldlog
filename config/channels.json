@@ -1,0 +1,73 @@
+{
+  // Channel catalog for Fieldlog.
+  //
+  // Each entry maps a stable key to an OPC UA node id. Edit this file to adapt the
+  // application to a different machine — no rebuild required. The "simulation" block
+  // is only used when the endpoint is set to "sim".
+  "channels": [
+    {
+      "key": "ambient_temp",
+      "nodeId": "ns=2;s=Plant.Env.AmbientTemperature",
+      "unit": "°C",
+      "kind": "Real",
+      "defaultIntervalSeconds": 30,
+      "simulation": { "floor": -15, "ceiling": 45, "periodSeconds": 600, "jitter": 0.4, "shape": "Wave" }
+    },
+    {
+      "key": "feed_water_temp",
+      "nodeId": "ns=2;s=Plant.Feed.WaterTemperature",
+      "unit": "°C",
+      "kind": "Real",
+      "defaultIntervalSeconds": 30,
+      "simulation": { "floor": 4, "ceiling": 35, "periodSeconds": 480, "jitter": 0.3, "shape": "Drift" }
+    },
+    {
+      "key": "slurry_temp",
+      "nodeId": "ns=2;s=Plant.Mixer.SlurryTemperature",
+      "unit": "°C",
+      "kind": "Real",
+      "defaultIntervalSeconds": 30,
+      "simulation": { "floor": 12, "ceiling": 70, "periodSeconds": 900, "jitter": 0.6, "shape": "Drift" }
+    },
+    {
+      "key": "feed_water_flow",
+      "nodeId": "ns=2;s=Plant.Feed.WaterFlowRate",
+      "unit": "L/h",
+      "kind": "Real",
+      "defaultIntervalSeconds": 15,
+      "simulation": { "floor": 0, "ceiling": 900, "periodSeconds": 300, "jitter": 8, "shape": "Wave" }
+    },
+    {
+      "key": "rotor_speed",
+      "nodeId": "ns=2;s=Plant.Drive.RotorSpeed",
+      "unit": "rpm",
+      "kind": "Integer",
+      "defaultIntervalSeconds": 10,
+      "simulation": { "floor": 0, "ceiling": 2800, "periodSeconds": 240, "jitter": 25, "shape": "Step" }
+    },
+    {
+      "key": "reversal_counter",
+      "nodeId": "ns=2;s=Plant.Drive.ReversalRuntime",
+      "unit": "s",
+      "kind": "Counter",
+      "defaultIntervalSeconds": 60,
+      "simulation": { "floor": 0, "ceiling": 7200, "periodSeconds": 7200, "shape": "Ramp" }
+    },
+    {
+      "key": "drive_power",
+      "nodeId": "ns=2;s=Plant.Drive.ActivePower",
+      "unit": "W",
+      "kind": "Real",
+      "defaultIntervalSeconds": 15,
+      "simulation": { "floor": 0, "ceiling": 2200, "periodSeconds": 240, "jitter": 40, "shape": "Step" }
+    },
+    {
+      "key": "line_pressure",
+      "nodeId": "ns=2;s=Plant.Line.DeliveryPressure",
+      "unit": "bar",
+      "kind": "Real",
+      "defaultIntervalSeconds": 10,
+      "simulation": { "floor": 0, "ceiling": 12, "periodSeconds": 180, "jitter": 0.2, "shape": "Wave" }
+    }
+  ]
+}

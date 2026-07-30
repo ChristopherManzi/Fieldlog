@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Fieldlog.App/Fieldlog.App.csproj" />
+    <Project Path="src/Fieldlog.Core/Fieldlog.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Fieldlog.Core.Tests/Fieldlog.Core.Tests.csproj" />
+  </Folder>
+</Solution>
